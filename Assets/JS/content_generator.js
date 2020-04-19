@@ -348,10 +348,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center")
   function mainContentGenerator() { wrapper.innerHTML = '';
   return cardsArray[0].map((item, index) => 
-  `<a href="#" class="card testimonial-card m-4">
+  `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
 
     <!-- Background color -->
-    <div class="card-up blue-gradient" data-order="${index+1}"></div>
+    <div class="card-up blue-gradient"></div>
 
     <!-- Avatar --> 
     <div class="avatar mx-auto white">
@@ -366,6 +366,7 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
    </a>`).join('');
   };
+  
   function pageContentGenerator(pageNumber) { wrapper.innerHTML = '';
   return cardsArray[pageNumber].map(item => 
   `<div class="flip-card">
@@ -411,10 +412,10 @@ document.addEventListener('DOMContentLoaded', () => {
   wrapper.onmouseover = (event) => console.log(event.srcElement);
 
   function menuSelector(event) {
+    const targetWithDataOrder = event.target.closest('[data-order]');
     console.log(event);
     if (event.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
-    else if (event.target.dataset.order) wrapper.innerHTML = pageContentGenerator(event.target.dataset.order);
-    else if (event.target.parrentNode.dataset.order) wrapper.innerHTML = pageContentGenerator(event.target.parrentNode.dataset.order);
+    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
   }
 
   // wrapper.innerHTML = pageContentGenerator(6); /* alternatively: wrapper.insertAdjacentHTML('beforeend', mainContent); */
