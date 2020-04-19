@@ -445,27 +445,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // wordMap['smile'].translation =
 
+  const learnPlayTogler = document.querySelector("#toggler");
+
   const wrapper = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center")
   function mainContentGenerator() { wrapper.innerHTML = '';
-  return cardsArray[0].map((item, index) => 
-  `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
+    let gradient = 'blue-gradient';
+    if (document.querySelector("#toggler").checked) gradient = 'night-fade-gradient';
+    return cardsArray[0].map((item, index) => 
+    `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
 
-    <!-- Background color -->
-    <div class="card-up blue-gradient"></div>
+      <!-- Background color -->
+      <div class="card-up ${gradient}"></div>
 
-    <!-- Avatar --> 
-    <div class="avatar mx-auto white">
-      <img src="${item.image}" class="rounded-circle" alt="${item.tittle}">
-    </div>
+      <!-- Avatar --> 
+      <div class="avatar mx-auto white">
+        <img src="${item.image}" class="rounded-circle" alt="${item.tittle}">
+      </div>
 
-    <!-- Content -->
-    <div class="card-body">
+      <!-- Content -->
+      <div class="card-body">
 
-      <!-- Name -->
-      <h4 class="card-title text-center mt-5">${item.tittle}</h4>
-    </div>
-   </a>`).join('');
-  };
+        <!-- Name -->
+        <h4 class="card-title text-center mt-5">${item.tittle}</h4>
+      </div>
+    </a>`).join('');
+    };
   
   function pageContentGenerator(pageNumber) { wrapper.innerHTML = '';
   return cardsArray[pageNumber].map(item => 
@@ -519,7 +523,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function winamp(event) {
     const playableTarget = event.target.closest('.flip-card');
-    let volumeSlider = document.querySelector("#vollume");
+    let volumeSlider = document.querySelector("#volume");
     if (playableTarget) {
       let mp3 = new Audio(playableTarget.dataset.audiosrc);
       mp3.volume = volumeSlider.value/(volumeSlider.max - volumeSlider.min);
@@ -531,7 +535,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // myBlossomScene;
 
   var s = document.createElement('style'), 
-    r = document.querySelector('input[type=range]'), 
+    r = document.querySelector('#volume'), 
     prefs = ['webkit-slider-runnable', 'moz-range'];
 
 document.body.appendChild(s);
