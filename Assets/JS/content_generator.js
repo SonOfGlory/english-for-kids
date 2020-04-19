@@ -414,20 +414,51 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetWithDataOrder = event.target.closest('[data-order]');
     /* console.log(event); */
     if (event.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
-    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order); 
   }
 
   function winamp(event) {
     const playableTarget = event.target.closest('.flip-card');
+    let volumeSlider = document.querySelector("#vollume");
     if (playableTarget) {
       let mp3 = new Audio(playableTarget.dataset.audiosrc);
-      mp3.volume = 0.2
+      mp3.volume = volumeSlider.value/(volumeSlider.max - volumeSlider.min);
       mp3.play();
     }
   }
 
   // wrapper.innerHTML = pageContentGenerator(6); /* alternatively: wrapper.insertAdjacentHTML('beforeend', mainContent); */
   // myBlossomScene;
+
+  var s = document.createElement('style'), 
+    r = document.querySelector('input[type=range]'), 
+    prefs = ['webkit-slider-runnable', 'moz-range'];
+
+document.body.appendChild(s);
+
+var getTrackStyleStr = function(el, val) {
+  var str = '', len = prefs.length;
+  
+  for(var i = 0; i < len; i++) {
+    str += '.js input[type=range]::-' + prefs[i] + 
+      '-track{background-size:' + val + '}';
+  }
+    
+  return str;
+};
+
+var getValStr = function(el, p) {
+  var min = el.min || 0, 
+      p = p || el.value, 
+      perc = (el.max) ? ~~(100*(p - min)/(el.max - min)) : p, 
+      val = perc + '% 100%,100% 100%,100% 100%';
+  
+  return val;
+};
+
+r.addEventListener('input', function() {
+  s.textContent = getTrackStyleStr(this, getValStr(this));
+}, false);
 
  /*  ============================================================================================================ */
 
