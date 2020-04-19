@@ -40,49 +40,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'cry',
         'translation': 'плакать',
         'image': 'Assets/img/cry.jpg',
-        'audioSrc': 'audio/cry.mp3'
+        'audioSrc': 'Assets/audio/cry.mp3'
       },
       {
         'word': 'dance',
         'translation': 'танцевать',
         'image': 'Assets/img/dance.jpg',
-        'audioSrc': 'audio/dance.mp3'
+        'audioSrc': 'Assets/audio/dance.mp3'
       },
       {
         'word': 'dive',
         'translation': 'нырять',
         'image': 'Assets/img/dive.jpg',
-        'audioSrc': 'audio/dive.mp3'
+        'audioSrc': 'Assets/audio/dive.mp3'
       },
       {
         'word': 'draw',
         'translation': 'рисовать',
         'image': 'Assets/img/draw.jpg',
-        'audioSrc': 'audio/draw.mp3'
+        'audioSrc': 'Assets/audio/draw.mp3'
       },
       {
         'word': 'fish',
         'translation': 'ловить рыбу',
         'image': 'Assets/img/fish.jpg',
-        'audioSrc': 'audio/fish.mp3'
+        'audioSrc': 'Assets/audio/fish.mp3'
       },
       {
         'word': 'fly',
         'translation': 'летать',
         'image': 'Assets/img/fly.jpg',
-        'audioSrc': 'audio/fly.mp3'
+        'audioSrc': 'Assets/audio/fly.mp3'
       },
       {
         'word': 'hug',
         'translation': 'обнимать',
         'image': 'Assets/img/hug.jpg',
-        'audioSrc': 'audio/hug.mp3'
+        'audioSrc': 'Assets/audio/hug.mp3'
       },
       {
         'word': 'jump',
         'translation': 'прыгать',
         'image': 'Assets/img/jump.jpg',
-        'audioSrc': 'audio/jump.mp3'
+        'audioSrc': 'Assets/audio/jump.mp3'
       }
     ],
     [
@@ -90,49 +90,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'open',
         'translation': 'открывать',
         'image': 'Assets/img/open.jpg',
-        'audioSrc': 'audio/open.mp3'
+        'audioSrc': 'Assets/audio/open.mp3'
       },
       {
         'word': 'play',
         'translation': 'играть',
         'image': 'Assets/img/play.jpg',
-        'audioSrc': 'audio/play.mp3'
+        'audioSrc': 'Assets/audio/play.mp3'
       },
       {
         'word': 'point',
         'translation': 'указывать',
         'image': 'Assets/img/point.jpg',
-        'audioSrc': 'audio/point.mp3'
+        'audioSrc': 'Assets/audio/point.mp3'
       },
       {
         'word': 'ride',
         'translation': 'ездить',
         'image': 'Assets/img/ride.jpg',
-        'audioSrc': 'audio/ride.mp3'
+        'audioSrc': 'Assets/audio/ride.mp3'
       },
       {
         'word': 'run',
         'translation': 'бегать',
         'image': 'Assets/img/run.jpg',
-        'audioSrc': 'audio/run.mp3'
+        'audioSrc': 'Assets/audio/run.mp3'
       },
       {
         'word': 'sing',
         'translation': 'петь',
         'image': 'Assets/img/sing.jpg',
-        'audioSrc': 'audio/sing.mp3'
+        'audioSrc': 'Assets/audio/sing.mp3'
       },
       {
         'word': 'skip',
         'translation': 'пропускать, прыгать',
         'image': 'Assets/img/skip.jpg',
-        'audioSrc': 'audio/skip.mp3'
+        'audioSrc': 'Assets/audio/skip.mp3'
       },
       {
         'word': 'swim',
         'translation': 'плавать',
         'image': 'Assets/img/swim.jpg',
-        'audioSrc': 'audio/swim.mp3'
+        'audioSrc': 'Assets/audio/swim.mp3'
       }
     ],
     [
@@ -140,49 +140,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'cat',
         'translation': 'кот',
         'image': 'Assets/img/cat.jpg',
-        'audioSrc': 'audio/cat.mp3'
+        'audioSrc': 'Assets/audio/cat.mp3'
       },
       {
         'word': 'chicken',
         'translation': 'цыплёнок',
         'image': 'Assets/img/chick.jpg',
-        'audioSrc': 'audio/chick.mp3'
+        'audioSrc': 'Assets/audio/chick.mp3'
       },
       {
         'word': 'chick',
         'translation': 'курица',
         'image': 'Assets/img/chicken.jpg',
-        'audioSrc': 'audio/chicken.mp3'
+        'audioSrc': 'Assets/audio/chicken.mp3'
       },
       {
         'word': 'dog',
         'translation': 'собака',
         'image': 'Assets/img/dog.jpg',
-        'audioSrc': 'audio/dog.mp3'
+        'audioSrc': 'Assets/audio/dog.mp3'
       },
       {
         'word': 'horse',
         'translation': 'лошадь',
         'image': 'Assets/img/horse.jpg',
-        'audioSrc': 'audio/horse.mp3'
+        'audioSrc': 'Assets/audio/horse.mp3'
       },
       {
         'word': 'pig',
         'translation': 'свинья',
         'image': 'Assets/img/pig.jpg',
-        'audioSrc': 'audio/pig.mp3'
+        'audioSrc': 'Assets/audio/pig.mp3'
       },
       {
         'word': 'rabbit',
         'translation': 'кролик',
         'image': 'Assets/img/rabbit.jpg',
-        'audioSrc': 'audio/rabbit.mp3'
+        'audioSrc': 'Assets/audio/rabbit.mp3'
       },
       {
         'word': 'sheep',
         'translation': 'овца',
         'image': 'Assets/img/sheep.jpg',
-        'audioSrc': 'audio/sheep.mp3'
+        'audioSrc': 'Assets/audio/sheep.mp3'
       }
     ],
     [
@@ -190,49 +190,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'bird',
         'translation': 'птица',
         'image': 'Assets/img/bird.jpg',
-        'audioSrc': 'audio/bird.mp3'
+        'audioSrc': 'Assets/audio/bird.mp3'
       },
       {
         'word': 'fish',
         'translation': 'рыба',
         'image': 'Assets/img/fish1.jpg',
-        'audioSrc': 'audio/fish.mp3'
+        'audioSrc': 'Assets/audio/fish.mp3'
       },
       {
         'word': 'frog',
         'translation': 'жаба',
         'image': 'Assets/img/frog.jpg',
-        'audioSrc': 'audio/frog.mp3'
+        'audioSrc': 'Assets/audio/frog.mp3'
       },
       {
         'word': 'giraffe',
         'translation': 'жирафа',
         'image': 'Assets/img/giraffe.jpg',
-        'audioSrc': 'audio/giraffe.mp3'
+        'audioSrc': 'Assets/audio/giraffe.mp3'
       },
       {
         'word': 'lion',
         'translation': 'лев',
         'image': 'Assets/img/lion.jpg',
-        'audioSrc': 'audio/lion.mp3'
+        'audioSrc': 'Assets/audio/lion.mp3'
       },
       {
         'word': 'mouse',
         'translation': 'мышь',
         'image': 'Assets/img/mouse.jpg',
-        'audioSrc': 'audio/mouse.mp3'
+        'audioSrc': 'Assets/audio/mouse.mp3'
       },
       {
         'word': 'turtle',
         'translation': 'черепаха',
         'image': 'Assets/img/turtle.jpg',
-        'audioSrc': 'audio/turtle.mp3'
+        'audioSrc': 'Assets/audio/turtle.mp3'
       },
       {
         'word': 'dolphin',
         'translation': 'дельфин',
         'image': 'Assets/img/dolphin.jpg',
-        'audioSrc': 'audio/dolphin.mp3'
+        'audioSrc': 'Assets/audio/dolphin.mp3'
       }
     ],
     [
@@ -240,49 +240,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'skirt',
         'translation': 'юбка',
         'image': 'Assets/img/skirt.jpg',
-        'audioSrc': 'audio/skirt.mp3'
+        'audioSrc': 'Assets/audio/skirt.mp3'
       },
       {
         'word': 'pants',
         'translation': 'брюки',
         'image': 'Assets/img/pants.jpg',
-        'audioSrc': 'audio/pants.mp3'
+        'audioSrc': 'Assets/audio/pants.mp3'
       },
       {
         'word': 'blouse',
         'translation': 'блузка',
         'image': 'Assets/img/blouse.jpg',
-        'audioSrc': 'audio/blouse.mp3'
+        'audioSrc': 'Assets/audio/blouse.mp3'
       },
       {
         'word': 'dress',
         'translation': 'платье',
         'image': 'Assets/img/dress.jpg',
-        'audioSrc': 'audio/dress.mp3'
+        'audioSrc': 'Assets/audio/dress.mp3'
       },
       {
         'word': 'boot',
         'translation': 'ботинок',
         'image': 'Assets/img/boot.jpg',
-        'audioSrc': 'audio/boot.mp3'
+        'audioSrc': 'Assets/audio/boot.mp3'
       },
       {
         'word': 'shirt',
         'translation': 'рубашка',
         'image': 'Assets/img/shirt.jpg',
-        'audioSrc': 'audio/shirt.mp3'
+        'audioSrc': 'Assets/audio/shirt.mp3'
       },
       {
         'word': 'coat',
         'translation': 'пальто',
         'image': 'Assets/img/coat.jpg',
-        'audioSrc': 'audio/coat.mp3'
+        'audioSrc': 'Assets/audio/coat.mp3'
       },
       {
         'word': 'shoe',
         'translation': 'туфли',
         'image': 'Assets/img/shoe.jpg',
-        'audioSrc': 'audio/shoe.mp3'
+        'audioSrc': 'Assets/audio/shoe.mp3'
       }
     ],
     [
@@ -290,49 +290,49 @@ document.addEventListener('DOMContentLoaded', () => {
         'word': 'sad',
         'translation': 'грустный',
         'image': 'Assets/img/sad.jpg',
-        'audioSrc': 'audio/sad.mp3'
+        'audioSrc': 'Assets/audio/sad.mp3'
       },
       {
         'word': 'angry',
         'translation': 'сердитый',
         'image': 'Assets/img/angry.jpg',
-        'audioSrc': 'audio/angry.mp3'
+        'audioSrc': 'Assets/audio/angry.mp3'
       },
       {
         'word': 'happy',
         'translation': 'счастливый',
         'image': 'Assets/img/happy.jpg',
-        'audioSrc': 'audio/happy.mp3'
+        'audioSrc': 'Assets/audio/happy.mp3'
       },
       {
         'word': 'tired',
         'translation': 'уставший',
         'image': 'Assets/img/tired.jpg',
-        'audioSrc': 'audio/tired.mp3'
+        'audioSrc': 'Assets/audio/tired.mp3'
       },
       {
         'word': 'surprised',
         'translation': 'удивлённый',
         'image': 'Assets/img/surprised.jpg',
-        'audioSrc': 'audio/surprised.mp3'
+        'audioSrc': 'Assets/audio/surprised.mp3'
       },
       {
         'word': 'scared',
         'translation': 'испуганный',
         'image': 'Assets/img/scared.jpg',
-        'audioSrc': 'audio/scared.mp3'
+        'audioSrc': 'Assets/audio/scared.mp3'
       },
       {
         'word': 'smile',
         'translation': 'улыбка',
         'image': 'Assets/img/smile.jpg',
-        'audioSrc': 'audio/smile.mp3'
+        'audioSrc': 'Assets/audio/smile.mp3'
       },
       {
         'word': 'laugh',
         'translation': 'смех',
         'image': 'Assets/img/laugh.jpg',
-        'audioSrc': 'audio/laugh.mp3'
+        'audioSrc': 'Assets/audio/laugh.mp3'
       }
     ]
   ]
@@ -369,7 +369,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   function pageContentGenerator(pageNumber) { wrapper.innerHTML = '';
   return cardsArray[pageNumber].map(item => 
-  `<div class="flip-card">
+  `<div class="flip-card" data-audiosrc="${item.audioSrc}">
     <div class="card m-4 flip-card-inner">
       <div class="flip-card-front">
         <!-- Card image -->
@@ -408,14 +408,22 @@ document.addEventListener('DOMContentLoaded', () => {
   wrapper.innerHTML = mainContentGenerator();
 
   document.querySelector("body > ul").onclick = (e) => menuSelector(e);
-  wrapper.onclick = (e) => menuSelector(e);
-  wrapper.onmouseover = (event) => console.log(event.srcElement);
+  wrapper.onclick = (e) => { menuSelector(e); winamp(e)};
 
   function menuSelector(event) {
     const targetWithDataOrder = event.target.closest('[data-order]');
-    console.log(event);
+    /* console.log(event); */
     if (event.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
     else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+  }
+
+  function winamp(event) {
+    const playableTarget = event.target.closest('.flip-card');
+    if (playableTarget) {
+      let mp3 = new Audio(playableTarget.dataset.audiosrc);
+      mp3.volume = 0.2
+      mp3.play();
+    }
   }
 
   // wrapper.innerHTML = pageContentGenerator(6); /* alternatively: wrapper.insertAdjacentHTML('beforeend', mainContent); */
