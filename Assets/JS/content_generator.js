@@ -137,6 +137,56 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     [
       {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      },
+      {
+        'word': '',
+        'translation': '',
+        'image': '',
+        'audioSrc': ''
+      }
+    ],
+    [
+      {
         'word': 'cat',
         'translation': 'кот',
         'image': 'Assets/img/cat.jpg',
@@ -233,6 +283,56 @@ document.addEventListener('DOMContentLoaded', () => {
         'translation': 'дельфин',
         'image': 'Assets/img/dolphin.jpg',
         'audioSrc': 'Assets/audio/dolphin.mp3'
+      }
+    ],
+     [
+      {
+        'word': 'cry',
+        'translation': 'плакать',
+        'image': 'Assets/img/cry.jpg',
+        'audioSrc': 'Assets/audio/cry.mp3'
+      },
+      {
+        'word': 'dance',
+        'translation': 'танцевать',
+        'image': 'Assets/img/dance.jpg',
+        'audioSrc': 'Assets/audio/dance.mp3'
+      },
+      {
+        'word': 'dive',
+        'translation': 'нырять',
+        'image': 'Assets/img/dive.jpg',
+        'audioSrc': 'Assets/audio/dive.mp3'
+      },
+      {
+        'word': 'draw',
+        'translation': 'рисовать',
+        'image': 'Assets/img/draw.jpg',
+        'audioSrc': 'Assets/audio/draw.mp3'
+      },
+      {
+        'word': 'fish',
+        'translation': 'ловить рыбу',
+        'image': 'Assets/img/fish.jpg',
+        'audioSrc': 'Assets/audio/fish.mp3'
+      },
+      {
+        'word': 'fly',
+        'translation': 'летать',
+        'image': 'Assets/img/fly.jpg',
+        'audioSrc': 'Assets/audio/fly.mp3'
+      },
+      {
+        'word': 'hug',
+        'translation': 'обнимать',
+        'image': 'Assets/img/hug.jpg',
+        'audioSrc': 'Assets/audio/hug.mp3'
+      },
+      {
+        'word': 'jump',
+        'translation': 'прыгать',
+        'image': 'Assets/img/jump.jpg',
+        'audioSrc': 'Assets/audio/jump.mp3'
       }
     ],
     [
