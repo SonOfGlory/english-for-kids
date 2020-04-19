@@ -1,6 +1,6 @@
 /* === Toggler low-resolution === */
 
-const menu_toggler = document.querySelector("#header > div.menu-toggler");
+const menu_toggler = document.querySelector("header > div.menu-toggler");
 const menu_togglers_set = document.querySelectorAll('[data-menuswitch]');
 
 menu_toggler.onclick = () => {
