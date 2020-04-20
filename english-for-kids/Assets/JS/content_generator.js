@@ -511,16 +511,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function menuSelector(e) {
     const targetWithDataOrder = e.target.closest('[data-order]');
-    if (e.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
-    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+    if (e.target.dataset.order == 0) { wrapper.innerHTML = mainContentGenerator(); menuOutlineGenerator(0) }
+    else if (targetWithDataOrder) {
+      wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+      menuOutlineGenerator(targetWithDataOrder.dataset.order);
+    }
   }
 
-  function menuOutlineGenerator(e) {
-    const targetWithDataOrder = e.target.closest('[data-order]');
-    if (e.target.dataset.order) {
+  function menuOutlineGenerator(order) {
       document.querySelectorAll('body > ul > li > a').forEach(a => a.classList.remove('active'));
-      e.target.classList.add('active');
-    }
+      document.querySelector(`body > ul > li > a[data-order='${order}']`).classList.add('active');
   }
 
   function winamp(e) {
@@ -548,13 +548,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('body > ul').onclick = (e) => {
     menuSelector(e);
-    menuOutlineGenerator(e);
+    /* menuOutlineGenerator(e); */
   }
 
   wrapper.onclick = (e) => {
     menuSelector(e);
     winamp(e);
-    menuOutlineGenerator(e);
+    /* menuOutlineGenerator(e); */
   };
 
 
