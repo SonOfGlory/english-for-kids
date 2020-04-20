@@ -132,6 +132,11 @@ header {
 	  transition: all 0.3s ease-in-out;
 	}
 
+  .active {
+	/* border-bottom: dotted 3px; */
+	background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px, transparent 5px);
+}
+
 /* ================ Cards ================ */
 
 .card {
