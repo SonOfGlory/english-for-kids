@@ -514,9 +514,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('body > ul').onclick = (e) => {
     menuSelector(e);
-    document.querySelectorAll('body > ul > li > a').forEach(a => a.classList.remove('active'));
-    e.target.classList.add('active');
-    console.log(this)
+    if (e.target.dataset.order) {
+      document.querySelectorAll('body > ul > li > a').forEach(a => a.classList.remove('active'));
+      e.target.classList.add('active');
+      console.log(this)
+    }
   }
 
   wrapper.onclick = (e) => {
