@@ -449,23 +449,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const wrapper = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center");
 
-  function mainContentGenerator() { wrapper.innerHTML = '';
+  function mainContentGenerator() { 
+    wrapper.innerHTML = '';
     let gradient = 'blue-gradient';
-    if (document.querySelector("#toggler").checked) gradient = 'night-fade-gradient';
+    if (document.querySelector("#toggler").checked) gradient = 'purple-gradient';
     return cardsArray[0].map((item, index) => 
     `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
-
       <!-- Background color -->
       <div class="card-up ${gradient}"></div>
-
       <!-- Avatar --> 
       <div class="avatar mx-auto white">
         <img src="${item.image}" class="rounded-circle" alt="${item.tittle}">
       </div>
-
       <!-- Content -->
       <div class="card-body">
-
         <!-- Name -->
         <h4 class="card-title text-center mt-5">${item.tittle}</h4>
       </div>
@@ -512,29 +509,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   wrapper.innerHTML = mainContentGenerator();
 
-  document.querySelector('body > ul').onclick = (e) => {
-    menuSelector(e);
+  function menuSelector(e) {
+    const targetWithDataOrder = e.target.closest('[data-order]');
+    if (e.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
+    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+  }
+
+  function menuOutlineGenerator(e) {
+    const targetWithDataOrder = e.target.closest('[data-order]');
     if (e.target.dataset.order) {
       document.querySelectorAll('body > ul > li > a').forEach(a => a.classList.remove('active'));
       e.target.classList.add('active');
-      console.log(this)
     }
   }
 
-  wrapper.onclick = (e) => {
-    menuSelector(e);
-    winamp(e)
-  };
-
-  function menuSelector(e) {
-    const targetWithDataOrder = e.target.closest('[data-order]');
-    /* console.log(event); */
-    if (e.target.dataset.order == 0) wrapper.innerHTML = mainContentGenerator();
-    else if (targetWithDataOrder) wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order) 
-  }
-
-  function winamp(event) {
-    const playableTarget = event.target.closest('.flip-card');
+  function winamp(e) {
+    const playableTarget = e.target.closest('.flip-card');
     let volumeSlider = document.querySelector("#volume");
     if (playableTarget) {
       let mp3 = new Audio(playableTarget.dataset.audiosrc);
@@ -544,13 +534,28 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   learnPlayTogler.addEventListener( 'change', function() {
+    const findDataOrder = document.querySelector(".active").dataset.order;
+    if (findDataOrder == 0) wrapper.innerHTML = mainContentGenerator();
+    else wrapper.innerHTML = pageContentGenerator(findDataOrder);
+
     if(learnPlayTogler.checked) {
-        console.log('Denis');
+        
         /* myBlossomScene; */
     } else {
         return
     }
-});
+  });
+
+  document.querySelector('body > ul').onclick = (e) => {
+    menuSelector(e);
+    menuOutlineGenerator(e);
+  }
+
+  wrapper.onclick = (e) => {
+    menuSelector(e);
+    winamp(e);
+    menuOutlineGenerator(e);
+  };
 
 
   /*  ============================================== Volume bar ===================================================== */
