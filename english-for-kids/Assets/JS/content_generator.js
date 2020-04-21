@@ -1,37 +1,36 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const cardsArray = [ 
-    /* ['Action (set A)', 'Action (set B)', 'Action (set C)', 'Animal (set A)', 'Animal (set B)', 'Adjective', 'Clothes', 'Emotions'], */
+  const dataStorage = [ 
     [
       {
-        'tittle':'Action (set A)',
+        'title':'Action (set A)',
         'image':'Assets/img/dance.jpg'
       }, 
       {
-        'tittle':'Action (set B)',
+        'title':'Action (set B)',
         'image':'Assets/img/swim.jpg'
       },
       {
-        'tittle':'Action (set C)',
+        'title':'Action (set C)',
         'image':'Assets/img/drop.jpg'
       },
       {
-        'tittle':'Animal (set A)',
+        'title':'Animal (set A)',
         'image':'Assets/img/cat.jpg'
       }, 
       {
-        'tittle':'Animal (set B)',
+        'title':'Animal (set B)',
         'image':'Assets/img/bird.jpg'
       }, 
       {
-        'tittle':'Adjective',
+        'title':'Adjective',
         'image':'Assets/img/friendly.jpg'
       },
       {
-        'tittle':'Clothes',
+        'title':'Clothes',
         'image':'Assets/img/blouse.jpg'
       },
       {
-        'tittle':'Emotions',
+        'title':'Emotions',
         'image':'Assets/img/dance.jpg'
       }
     ],
@@ -445,82 +444,92 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // wordMap['smile'].translation =
 
-  const learnPlayTogler = document.querySelector("#toggler");
+  const cardsContainer = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center");
+  const menu = document.querySelector('body > ul');
+  const menuToggler = document.querySelector("body > header > div.menu-toggler > input[type=checkbox]");
+  const menuTogglerTriggers = document.querySelectorAll('[data-menuswitch]');
+  const modeToggler = document.querySelector("#toggler");
+  const gameGradient = 'play-mode-color';
+  const playButton = document.querySelector(".play-button");
 
-  const wrapper = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center");
-
-  function mainContentGenerator() { 
-    wrapper.innerHTML = '';
+  mainContentGenerator = () => { 
     let gradient = 'blue-gradient';
-    if (document.querySelector("#toggler").checked) gradient = 'purple-gradient';
-    return cardsArray[0].map((item, index) => 
+    if (modeToggler.checked) gradient = gameGradient;
+    playButton.classList.remove('shown'); 
+    cardsContainer.innerHTML = dataStorage[0].map((item, index) => 
     `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
       <!-- Background color -->
       <div class="card-up ${gradient}"></div>
       <!-- Avatar --> 
       <div class="avatar mx-auto white">
-        <img src="${item.image}" class="rounded-circle" alt="${item.tittle}">
+        <img src="${item.image}" class="rounded-circle" alt="${item.title}">
       </div>
       <!-- Content -->
       <div class="card-body">
         <!-- Name -->
-        <h4 class="card-title text-center mt-5">${item.tittle}</h4>
+        <h4 class="card-title text-center mt-5">${item.title}</h4>
       </div>
     </a>`).join('');
-    };
+    }
   
-  function pageContentGenerator(pageNumber) { wrapper.innerHTML = '';
-  return cardsArray[pageNumber].map(item => 
-  `<div class="flip-card" data-audiosrc="${item.audioSrc}">
-    <div class="card m-4 flip-card-inner">
-      <div class="flip-card-front">
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top" src="${item.image}" alt="${item.tittle}">
-          <a href="#!">
-            <div class="mask rgba-white-slight waves-effect waves-light"></div>
-          </a>
+  pageContentGenerator = (pageNumber) => {
+    cardsContainer.innerHTML = dataStorage[pageNumber].map(item => 
+    `<div class="flip-card" data-word="${item.word}" data-audiosrc="${item.audioSrc}">
+      <div class="card m-4 flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Card image -->
+          <div class="view overlay d-flex justify-content-center">
+            <img class="card-img-top" src="${item.image}" alt="${item.title}">
+            <a href="#!">
+              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+            </a>
+          </div>
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h4 class="card-title text-center">${item.word}</h4>
+            <!-- rotation icon -->
+            <div class="rotate-icon"></div>
+          </div>
         </div>
-        <!-- Card content -->
-        <div class="card-body">
-          <!-- Title -->
-          <h4 class="card-title text-center">${item.word}</h4>
-          <!-- rotation icon -->
-          <div class="rotate-icon"></div>
+        <div class="flip-card-back">
+          <!-- Card image -->
+          <div class="view overlay d-flex justify-content-center">
+            <img class="card-img-top" src="${item.image}" alt="${item.word}">
+            <a href="#!">
+              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+            </a>
+          </div>
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h4 class="card-title text-center">${item.translation}</h4>
+          </div>
         </div>
       </div>
-      <div class="flip-card-back">
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top" src="${item.image}" alt="${item.tittle}">
-          <a href="#!">
-            <div class="mask rgba-white-slight waves-effect waves-light"></div>
-          </a>
-        </div>
-        <!-- Card content -->
-        <div class="card-body">
-          <!-- Title -->
-          <h4 class="card-title text-center">${item.translation}</h4>
-        </div>
-      </div>
-    </div>
-  </div>`).join('');
-  };
+    </div>`).join('');
+    if(modeToggler.checked) playButton.classList.add('shown'); 
+    // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="play-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
+  }
 
-  wrapper.innerHTML = mainContentGenerator();
+  mainContentGenerator();
 
   function menuSelector(e) {
     const targetWithDataOrder = e.target.closest('[data-order]');
-    if (e.target.dataset.order == 0) { wrapper.innerHTML = mainContentGenerator(); menuOutlineGenerator(0) }
+    /* console.log(targetWithDataOrder.dataset.order); */
+    if (e.target.dataset.order == 0) {
+      mainContentGenerator();
+      menuOutlineGenerator(0);
+    }
     else if (targetWithDataOrder) {
-      wrapper.innerHTML = pageContentGenerator(targetWithDataOrder.dataset.order);
+      pageContentGenerator(targetWithDataOrder.dataset.order);
       menuOutlineGenerator(targetWithDataOrder.dataset.order);
     }
   }
 
   function menuOutlineGenerator(order) {
-      document.querySelectorAll('body > ul > li > a').forEach(a => a.classList.remove('active'));
-      document.querySelector(`body > ul > li > a[data-order='${order}']`).classList.add('active');
+      menu.querySelectorAll('li > a').forEach(a => a.classList.remove('active'));
+      menu.querySelector(`li > a[data-order='${order}']`).classList.add('active');
   }
 
   function winamp(e) {
@@ -533,29 +542,100 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  learnPlayTogler.addEventListener( 'change', function() {
-    const findDataOrder = document.querySelector(".active").dataset.order;
-    if (findDataOrder == 0) wrapper.innerHTML = mainContentGenerator();
-    else wrapper.innerHTML = pageContentGenerator(findDataOrder);
-
-    if(learnPlayTogler.checked) {
-        
-        /* myBlossomScene; */
-    } else {
-        return
+  function shuffle(array) {
+    let m = array.length, i;
+    while (m) {
+      i = Math.floor(Math.random() * m--);
+      [array[m], array[i]] = [array[i], array[m]];
     }
-  });
-
-  document.querySelector('body > ul').onclick = (e) => {
-    menuSelector(e);
-    /* menuOutlineGenerator(e); */
+    return array;
   }
 
-  wrapper.onclick = (e) => {
+  function checkCorrectSound(element) {
+    if (element.dataset.audioSrc === shuffle(array)[element]) {
+      createnewstar();
+      element++;
+
+    }
+    else {
+      createemptynewstar();
+    }
+  }
+
+  menuToggler.onclick = () => {
+    if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
+      menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = 'hidden';
+      }
+    )}
+    else menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = '';
+      }
+    )
+  }
+
+  modeToggler.addEventListener('change', function() {
+    const findDataOrder = menu.querySelector(".active").dataset.order;
+    console.log(findDataOrder);
+    if (findDataOrder == 0) mainContentGenerator();
+    else pageContentGenerator(findDataOrder);
+
+    if(modeToggler.checked) {
+      menu.classList.add(gameGradient);
+      if (findDataOrder != 0) playButton.classList.add('shown'); 
+    } else {
+      menu.classList.remove(gameGradient);
+      playButton.classList.remove('shown'); 
+    }
+  });
+  
+  menu.onmouseleave = () => {
+    menu.dataset.menuswitch = 'hidden';
+    menuToggler.checked = false;
+  }
+
+  menu.onclick = (e) => {
     menuSelector(e);
+  }
+
+  cardsContainer.onclick = (e) => {
     winamp(e);
-    /* menuOutlineGenerator(e); */
+    menuSelector(e);
   };
+
+  function handleStart() {
+    // Выбираем массив соответствующий теме
+    // Копируем в отдельную переменную
+    // Перетасовываем массив
+    // Выбираем [последний]
+    // Проигрываем звук
+    // Вешаем обработчик на контейнер
+    // Прячем старт, показываем повтор
+
+  }
+
+  function handleGuessClick(e) {
+    const playableTarget = e.target.closest('.flip-card');
+    // выяснить какого слова касается карточка
+      //
+    // если слово совпало:
+      // если слово совпало:
+      // выключаем карточку
+      // добавляем звездочку
+      // если слов больше нету -> 
+        // проигрываем звук прохождения теста
+        // показываем картинку
+        // возврат в экран выбора категорий и return
+      // проигрываем звук победы
+      // берем следующее слово
+      // Проигрываем следуюций звук
+    // если слово НЕ совпало:
+      // добавляем пустую звездочку
+      // проигрываем звук поражения
+      // проигрываем звук победы
+  } 
+
+
 
 
   /*  ============================================== Volume bar ===================================================== */
