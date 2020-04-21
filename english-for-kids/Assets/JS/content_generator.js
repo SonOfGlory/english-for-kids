@@ -449,8 +449,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuToggler = document.querySelector("body > header > div.menu-toggler > input[type=checkbox]");
   const menuTogglerTriggers = document.querySelectorAll('[data-menuswitch]');
   const modeToggler = document.querySelector("#toggler");
-  const gameGradient = 'play-mode-color';
+  const gameGradient = 'game-mode';
   const playButton = document.querySelector(".play-button");
+  let gameMode;
 
   mainContentGenerator = () => { 
     let gradient = 'blue-gradient';
@@ -470,22 +471,29 @@ document.addEventListener('DOMContentLoaded', () => {
         <h4 class="card-title text-center mt-5">${item.title}</h4>
       </div>
     </a>`).join('');
-    }
+    };
   
   pageContentGenerator = (pageNumber) => {
+    if(modeToggler.checked) {
+      playButton.classList.add('shown');
+      gameMode = 'game-mode';
+    }
+    else {
+      gameMode = '';
+    }
     cardsContainer.innerHTML = dataStorage[pageNumber].map(item => 
     `<div class="flip-card" data-word="${item.word}" data-audiosrc="${item.audioSrc}">
       <div class="card m-4 flip-card-inner">
         <div class="flip-card-front">
           <!-- Card image -->
           <div class="view overlay d-flex justify-content-center">
-            <img class="card-img-top" src="${item.image}" alt="${item.title}">
+            <img class="card-img-top ${gameMode}" src="${item.image}" alt="${item.title}">
             <a href="#!">
               <div class="mask rgba-white-slight waves-effect waves-light"></div>
             </a>
           </div>
           <!-- Card content -->
-          <div class="card-body">
+          <div class="card-body ${gameMode}">
             <!-- Title -->
             <h4 class="card-title text-center">${item.word}</h4>
             <!-- rotation icon -->
@@ -495,20 +503,19 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="flip-card-back">
           <!-- Card image -->
           <div class="view overlay d-flex justify-content-center">
-            <img class="card-img-top" src="${item.image}" alt="${item.word}">
+            <img class="card-img-top ${gameMode}" src="${item.image}" alt="${item.word}">
             <a href="#!">
               <div class="mask rgba-white-slight waves-effect waves-light"></div>
             </a>
           </div>
           <!-- Card content -->
-          <div class="card-body">
+          <div class="card-body ${gameMode}">
             <!-- Title -->
             <h4 class="card-title text-center">${item.translation}</h4>
           </div>
         </div>
       </div>
     </div>`).join('');
-    if(modeToggler.checked) playButton.classList.add('shown'); 
     // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="play-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
   }
 

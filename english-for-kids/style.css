@@ -252,14 +252,18 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 
 /* ================ Game-related  ================ */
 
-.play-mode-color {
+.game-mode {
   /* background: -webkit-radial-gradient( left bottom, circle farthest-corner, #ffd6ee, #7873f5);
   background: radial-gradient( farthest-corner circle at left bottom, #ffd6ee, #7873f5); */
 
   background: linear-gradient(40deg, #ffd6ee, #7873f5) !important;  
 }
 
-.card-img-top.play-mode {
+.card-body.game-mode {
+  display:none;
+}
+
+.card-img-top.game-mode {
   -ms-flex-negative: 0;
   flex-shrink: 0;
   width: auto;
@@ -274,6 +278,8 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .play-button.shown {
   transform: translate(30%, 0%);
 }
+
+card-body
 
 /* ================ VOLUME ================ */
 
