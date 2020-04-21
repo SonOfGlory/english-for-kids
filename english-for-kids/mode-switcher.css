@@ -207,10 +207,10 @@
     border-radius: 60px;
   }
   .switch-container.demo-rebrand-2 label .switch-container__switch:before {
-    left: 60px; /* 48px */
+    left: 57px; /* 48px 60px */
     font-size: 13px;
     line-height: 38px;
-    width: 60px;
+    width: 63px; /* 60px */
     padding: 0 12px;
   }
   .switch-container.demo-rebrand-2 label .switch-container__switch:after {
