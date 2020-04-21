@@ -286,52 +286,52 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
      [
       {
-        'word': 'cry',
-        'translation': 'плакать',
+        'word': 'interensting',
+        'translation': 'интересный',
         'image': 'Assets/img/cry.jpg',
-        'audioSrc': 'Assets/audio/cry.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/interesting.mp3'
       },
       {
-        'word': 'dance',
-        'translation': 'танцевать',
+        'word': 'good',
+        'translation': 'хороший',
         'image': 'Assets/img/dance.jpg',
-        'audioSrc': 'Assets/audio/dance.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/good.mp3'
       },
       {
-        'word': 'dive',
-        'translation': 'нырять',
+        'word': 'old',
+        'translation': 'старый',
         'image': 'Assets/img/dive.jpg',
-        'audioSrc': 'Assets/audio/dive.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/old.mp3'
       },
       {
-        'word': 'draw',
-        'translation': 'рисовать',
+        'word': 'young',
+        'translation': 'молодой',
         'image': 'Assets/img/draw.jpg',
-        'audioSrc': 'Assets/audio/draw.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/young.mp3'
       },
       {
-        'word': 'fish',
-        'translation': 'ловить рыбу',
+        'word': 'clever',
+        'translation': 'умный',
         'image': 'Assets/img/fish.jpg',
-        'audioSrc': 'Assets/audio/fish.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/clever.mp3'
       },
       {
-        'word': 'fly',
-        'translation': 'летать',
+        'word': 'educated',
+        'translation': 'образованный',
         'image': 'Assets/img/fly.jpg',
-        'audioSrc': 'Assets/audio/fly.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/educated.mp3'
       },
       {
-        'word': 'hug',
-        'translation': 'обнимать',
+        'word': 'mature',
+        'translation': 'зрелый',
         'image': 'Assets/img/hug.jpg',
-        'audioSrc': 'Assets/audio/hug.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/mature.mp3'
       },
       {
-        'word': 'jump',
-        'translation': 'прыгать',
+        'word': 'beautiful',
+        'translation': 'прекрасный, красивый',
         'image': 'Assets/img/jump.jpg',
-        'audioSrc': 'Assets/audio/jump.mp3'
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/beautiful.mp3'
       }
     ],
     [
