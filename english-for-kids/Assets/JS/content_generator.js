@@ -448,15 +448,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const menu = document.querySelector('body > ul');
   const menuToggler = document.querySelector("body > header > div.menu-toggler > input[type=checkbox]");
   const menuTogglerTriggers = document.querySelectorAll('[data-menuswitch]');
-  const modeToggler = document.querySelector("#toggler");
+  const gameModeSwitch = document.querySelector("#toggler");
   const gameGradient = 'game-mode';
-  const playButton = document.querySelector(".play-button");
+  const startButton = document.querySelector(".start-button");
   let gameMode;
 
   mainContentGenerator = () => { 
     let gradient = 'blue-gradient';
-    if (modeToggler.checked) gradient = gameGradient;
-    playButton.classList.remove('shown'); 
+    if (gameModeSwitch.checked) gradient = gameGradient;
+    startButton.classList.remove('shown'); 
     cardsContainer.innerHTML = dataStorage[0].map((item, index) => 
     `<a href="#" class="card testimonial-card m-4" data-order="${index+1}">
       <!-- Background color -->
@@ -474,8 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
   
   pageContentGenerator = (pageNumber) => {
-    if(modeToggler.checked) {
-      playButton.classList.add('shown');
+    if(gameModeSwitch.checked) {
+      startButton.classList.add('shown');
       gameMode = 'game-mode';
     }
     else {
@@ -516,7 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>`).join('');
-    // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="play-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
+    // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="start-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
   }
 
   mainContentGenerator();
@@ -542,11 +542,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function winamp(e) {
     const playableTarget = e.target.closest('.flip-card');
     let volumeSlider = document.querySelector("#volume");
-    if (playableTarget) {
+    if (playableTarget && !gameModeSwitch.checked) {
       let mp3 = new Audio(playableTarget.dataset.audiosrc);
       mp3.volume = volumeSlider.value/(volumeSlider.max - volumeSlider.min);
       mp3.play();
     }
+  }
+
+  function gameSoundPlayer(url) {
+    let volumeSlider = document.querySelector("#volume");
+    const mp3 = new Audio(url);
+    mp3.volume = (volumeSlider.value)/(volumeSlider.max);
+    mp3.play();
   }
 
   function shuffle(array) {
@@ -556,17 +563,6 @@ document.addEventListener('DOMContentLoaded', () => {
       [array[m], array[i]] = [array[i], array[m]];
     }
     return array;
-  }
-
-  function checkCorrectSound(element) {
-    if (element.dataset.audioSrc === shuffle(array)[element]) {
-      createnewstar();
-      element++;
-
-    }
-    else {
-      createemptynewstar();
-    }
   }
 
   menuToggler.onclick = () => {
@@ -581,18 +577,19 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   }
 
-  modeToggler.addEventListener('change', function() {
+  gameModeSwitch.addEventListener('change', function() {
     const findDataOrder = menu.querySelector(".active").dataset.order;
     console.log(findDataOrder);
     if (findDataOrder == 0) mainContentGenerator();
     else pageContentGenerator(findDataOrder);
-
-    if(modeToggler.checked) {
+    if(gameModeSwitch.checked) {
       menu.classList.add(gameGradient);
-      if (findDataOrder != 0) playButton.classList.add('shown'); 
+      if (findDataOrder != 0) startButton.classList.add('shown'); 
     } else {
       menu.classList.remove(gameGradient);
-      playButton.classList.remove('shown'); 
+      startButton.classList.remove('shown');
+      startButton.classList.add('purple-gradient');
+      startButton.classList.remove('repeat');
     }
   });
   
@@ -613,33 +610,73 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleStart() {
     // Выбираем массив соответствующий теме
     // Копируем в отдельную переменную
+    const currentTheme = dataStorage[menu.querySelector(".active").dataset.order].slice();
     // Перетасовываем массив
+    shuffledCurrentTheme = shuffle(currentTheme);
     // Выбираем [последний]
+    currentObject = shuffledCurrentTheme.pop();
     // Проигрываем звук
+    gameSoundPlayer(currentObject.audioSrc);
     // Вешаем обработчик на контейнер
-    // Прячем старт, показываем повтор
-
+    cardsContainer.onclick = (e) => {
+      checkCorrectAnswer(e)
+    };
+    // Превращаем "старт" в "повтор" / Прячем "старт", показываем "повтор"
+    startButton.classList.toggle('purple-gradient');
+    startButton.classList.toggle('repeat');
+    // if (!gameMogeSwitch.checked) return;
   }
 
-  function handleGuessClick(e) {
+  startButton.onclick = () => {
+    //Кликаем на кнопку только когда она "старт", а не "повтор"
+    if (startButton.classList.contains('repeat')) gameSoundPlayer(currentObject.audioSrc);
+    else handleStart();
+  }
+
+  function checkCorrectAnswer(e) {
     const playableTarget = e.target.closest('.flip-card');
+    if (playableTarget) {
     // выяснить какого слова касается карточка
-      //
     // если слово совпало:
-      // если слово совпало:
-      // выключаем карточку
-      // добавляем звездочку
-      // если слов больше нету -> 
-        // проигрываем звук прохождения теста
-        // показываем картинку
-        // возврат в экран выбора категорий и return
-      // проигрываем звук победы
-      // берем следующее слово
-      // Проигрываем следуюций звук
-    // если слово НЕ совпало:
-      // добавляем пустую звездочку
-      // проигрываем звук поражения
-      // проигрываем звук победы
+      if (playableTarget.dataset.word === currentObject.word) {
+        // выключаем карточку
+        playableTarget.classList.add('already-guessed');
+        // добавляем звездочку
+        // если слов больше нету ->
+        if (shuffledCurrentTheme.length === 0) {
+          // проигрываем звук прохождения теста
+          cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="undefined">`;
+          gameSoundPlayer('Assets/audio/success.mp3');
+          // показываем картинку
+          // возврат в экран выбора категорий и return
+          startButton.classList.add('purple-gradient');
+          startButton.classList.remove('repeat');
+          setTimeout(function() {
+            mainContentGenerator();
+            cardsContainer.onclick = (e) => {
+              winamp(e);
+              menuSelector(e);
+            };
+          }, 2000);
+          return;
+        }
+        // проигрываем звук победы
+        gameSoundPlayer('Assets/audio/correct.mp3');
+        // берем следующее слово
+        // Проигрываем следуюций звук
+        // (Взято из handleStart)
+        currentObject = shuffledCurrentTheme.pop();
+        gameSoundPlayer(currentObject.audioSrc);
+      }
+      // если слово НЕ совпало:
+      else {
+        // добавляем пустую звездочку
+        // проигрываем звук поражения
+        gameSoundPlayer('Assets/audio/error.mp3');
+        // ожидание слова
+
+      }
+    }
   } 
 
 

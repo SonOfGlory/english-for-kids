@@ -141,7 +141,7 @@ ul.menu li a {
 background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px, transparent 5px);
 }
 
-.play-button {
+.start-button {
   transform: translate(30%, -300%);
 }
 
@@ -255,8 +255,7 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .game-mode {
   /* background: -webkit-radial-gradient( left bottom, circle farthest-corner, #ffd6ee, #7873f5);
   background: radial-gradient( farthest-corner circle at left bottom, #ffd6ee, #7873f5); */
-
-  background: linear-gradient(40deg, #ffd6ee, #7873f5) !important;  
+  background: linear-gradient(40deg, #ffd6ee, #7873f5)!important;  
 }
 
 .card-body.game-mode {
@@ -266,20 +265,44 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .card-img-top.game-mode {
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  width: auto;
-  align-items: center;
-  /* transform: translateX(-10%); */
+  width: 140%;
+  display: block
+}
+
+.overlay {
+  border-radius: inherit;
 }
 
 /* .play-mode {
   background: url(Assets/img/sakura_petals.gif) 57% 74%;
 } */
 
-.play-button.shown {
+.start-button.shown {
   transform: translate(30%, 0%);
+  background-size: 0px 0px,cover;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
-card-body
+.start-button.repeat {
+/*   width: 65px; */
+  font-size: 0;
+  background-image: url(Assets/icons/repeat.svg),linear-gradient(40deg, #cee956, #5aca5a)!important;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 32px 32px,cover;
+  background-position: 50%;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
+}
+
+.start-button.repeat.shown {
+  transform: translate(74%, 0%);
+}
+
+.already-guessed img {
+  opacity: .5;
+}
 
 /* ================ VOLUME ================ */
 
