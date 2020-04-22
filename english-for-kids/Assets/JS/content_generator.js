@@ -136,52 +136,52 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
     [
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'bend',
+        'translation': 'сгибать',
+        'image': 'Assets/img/bend.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/bend.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'lift',
+        'translation': 'поднимать',
+        'image': 'Assets/img/lift.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/lift.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'carry',
+        'translation': 'носить',
+        'image': 'Assets/img/carry.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/carry.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'pick up',
+        'translation': 'подбирать',
+        'image': 'Assets/img/pick-up.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/uk/mp3/pick-up.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'clap',
+        'translation': 'хлопать',
+        'image': 'Assets/img/clap.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/clap.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'put down',
+        'translation': 'класть',
+        'image': 'Assets/img/put-down.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/uk/mp3/put-down.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'drag',
+        'translation': 'тащить',
+        'image': 'Assets/img/drag.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/uk/mp3/drag.mp3'
       },
       {
-        'word': '',
-        'translation': '',
-        'image': '',
-        'audioSrc': ''
+        'word': 'listen',
+        'translation': 'слушать',
+        'image': 'Assets/img/listen.jpg',
+        'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/listen.mp3'
       }
     ],
     [
@@ -194,14 +194,14 @@ document.addEventListener('DOMContentLoaded', () => {
       {
         'word': 'chicken',
         'translation': 'цыплёнок',
-        'image': 'Assets/img/chick.jpg',
-        'audioSrc': 'Assets/audio/chick.mp3'
+        'image': 'Assets/img/chicken.jpg',
+        'audioSrc': 'Assets/audio/chicken.mp3'
       },
       {
         'word': 'chick',
         'translation': 'курица',
-        'image': 'Assets/img/chicken.jpg',
-        'audioSrc': 'Assets/audio/chicken.mp3'
+        'image': 'Assets/img/chick.jpg',
+        'audioSrc': 'Assets/audio/chick.mp3'
       },
       {
         'word': 'dog',
@@ -436,14 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   ]
 
-// const wordMap = {
-//   smile: {  ,....},
-//   scared: {  ....}
-//   ...
-// }
-
-// wordMap['smile'].translation =
-
   const cardsContainer = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center");
   const menu = document.querySelector('body > ul');
   const menuToggler = document.querySelector("body > header > div.menu-toggler > input[type=checkbox]");
@@ -451,7 +443,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const gameModeSwitch = document.querySelector("#toggler");
   const gameGradient = 'game-mode';
   const startButton = document.querySelector(".start-button");
-  let gameMode;
+  let gameMode, shuffledCurrentTheme, currentObject;
 
   mainContentGenerator = () => { 
     let gradient = 'blue-gradient';
@@ -523,7 +515,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function menuSelector(e) {
     const targetWithDataOrder = e.target.closest('[data-order]');
-    /* console.log(targetWithDataOrder.dataset.order); */
     if (e.target.dataset.order == 0) {
       mainContentGenerator();
       menuOutlineGenerator(0);
@@ -549,7 +540,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function gameSoundPlayer(url) {
+  function playGameSound(url) {
     let volumeSlider = document.querySelector("#volume");
     const mp3 = new Audio(url);
     mp3.volume = (volumeSlider.value)/(volumeSlider.max);
@@ -579,7 +570,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   gameModeSwitch.addEventListener('change', function() {
     const findDataOrder = menu.querySelector(".active").dataset.order;
-    console.log(findDataOrder);
     if (findDataOrder == 0) mainContentGenerator();
     else pageContentGenerator(findDataOrder);
     if(gameModeSwitch.checked) {
@@ -616,7 +606,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Выбираем [последний]
     currentObject = shuffledCurrentTheme.pop();
     // Проигрываем звук
-    gameSoundPlayer(currentObject.audioSrc);
+    playGameSound(currentObject.audioSrc);
     // Вешаем обработчик на контейнер
     cardsContainer.onclick = (e) => {
       checkCorrectAnswer(e)
@@ -629,7 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   startButton.onclick = () => {
     //Кликаем на кнопку только когда она "старт", а не "повтор"
-    if (startButton.classList.contains('repeat')) gameSoundPlayer(currentObject.audioSrc);
+    if (startButton.classList.contains('repeat')) playGameSound(currentObject.audioSrc);
     else handleStart();
   }
 
@@ -646,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (shuffledCurrentTheme.length === 0) {
           // проигрываем звук прохождения теста
           cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="undefined">`;
-          gameSoundPlayer('Assets/audio/success.mp3');
+          playGameSound('Assets/audio/success.mp3');
           // показываем картинку
           // возврат в экран выбора категорий и return
           startButton.classList.add('purple-gradient');
@@ -661,20 +651,19 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
         // проигрываем звук победы
-        gameSoundPlayer('Assets/audio/correct.mp3');
+        playGameSound('Assets/audio/correct.mp3');
         // берем следующее слово
         // Проигрываем следуюций звук
         // (Взято из handleStart)
         currentObject = shuffledCurrentTheme.pop();
-        gameSoundPlayer(currentObject.audioSrc);
+        playGameSound(currentObject.audioSrc);
       }
       // если слово НЕ совпало:
       else {
         // добавляем пустую звездочку
         // проигрываем звук поражения
-        gameSoundPlayer('Assets/audio/error.mp3');
+        playGameSound('Assets/audio/error.mp3');
         // ожидание слова
-
       }
     }
   } 
