@@ -286,51 +286,51 @@ document.addEventListener('DOMContentLoaded', () => {
     ],
      [
       {
-        'word': 'interensting',
+        'word': 'interesting',
         'translation': 'интересный',
-        'image': 'Assets/img/cry.jpg',
+        'image': 'Assets/img/interesting.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/interesting.mp3'
       },
       {
         'word': 'good',
         'translation': 'хороший',
-        'image': 'Assets/img/dance.jpg',
+        'image': 'Assets/img/good.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/good.mp3'
       },
       {
         'word': 'old',
         'translation': 'старый',
-        'image': 'Assets/img/dive.jpg',
+        'image': 'Assets/img/old.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/old.mp3'
       },
       {
         'word': 'young',
         'translation': 'молодой',
-        'image': 'Assets/img/draw.jpg',
+        'image': 'Assets/img/young.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/young.mp3'
       },
       {
         'word': 'clever',
         'translation': 'умный',
-        'image': 'Assets/img/fish.jpg',
+        'image': 'Assets/img/clever.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/clever.mp3'
       },
       {
         'word': 'educated',
         'translation': 'образованный',
-        'image': 'Assets/img/fly.jpg',
+        'image': 'Assets/img/educated.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/educated.mp3'
       },
       {
         'word': 'mature',
         'translation': 'зрелый',
-        'image': 'Assets/img/hug.jpg',
+        'image': 'Assets/img/mature.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/mature.mp3'
       },
       {
         'word': 'beautiful',
         'translation': 'прекрасный, красивый',
-        'image': 'Assets/img/jump.jpg',
+        'image': 'Assets/img/beautiful.jpg',
         'audioSrc': 'https://wooordhunt.ru/data/sound/word/us/mp3/beautiful.mp3'
       }
     ],
@@ -530,6 +530,14 @@ document.addEventListener('DOMContentLoaded', () => {
       menu.querySelector(`li > a[data-order='${order}']`).classList.add('active');
   }
 
+  function rotateIcons(e) {
+    const rotatedTarget = e.target.closest('.flip-card');
+    if (e.target.closest('.rotate-icon')) {
+      rotatedTarget.classList.add('rotate');
+      rotatedTarget.onmouseleave = () =>  rotatedTarget.classList.remove('rotate');
+    }
+  }
+
   function winamp(e) {
     const playableTarget = e.target.closest('.flip-card');
     let volumeSlider = document.querySelector("#volume");
@@ -554,18 +562,6 @@ document.addEventListener('DOMContentLoaded', () => {
       [array[m], array[i]] = [array[i], array[m]];
     }
     return array;
-  }
-
-  menuToggler.onclick = () => {
-    if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
-      menuTogglerTriggers.forEach(toggler => {
-        toggler.dataset.menuswitch = 'hidden';
-      }
-    )}
-    else menuTogglerTriggers.forEach(toggler => {
-        toggler.dataset.menuswitch = '';
-      }
-    )
   }
 
   gameModeSwitch.addEventListener('change', function() {
@@ -595,7 +591,20 @@ document.addEventListener('DOMContentLoaded', () => {
   cardsContainer.onclick = (e) => {
     winamp(e);
     menuSelector(e);
+    rotateIcons(e);
   };
+
+  menuToggler.onclick = () => {
+    if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
+      menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = 'hidden';
+      }
+    )}
+    else menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = '';
+      }
+    )
+  }
 
   function handleStart() {
     // Выбираем массив соответствующий теме
@@ -625,7 +634,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkCorrectAnswer(e) {
     const playableTarget = e.target.closest('.flip-card');
-    if (playableTarget) {
+    if (playableTarget && !playableTarget.classList.contains('already-guessed')) {
     // выяснить какого слова касается карточка
     // если слово совпало:
       if (playableTarget.dataset.word === currentObject.word) {
