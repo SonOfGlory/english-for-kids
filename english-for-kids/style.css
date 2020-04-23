@@ -43,7 +43,6 @@ header {
 
 .btn {
   margin: 0;
-  padding: .375rem .75rem;
 }
 
 /* ========== Home menu burger ========== */
@@ -206,7 +205,7 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.flip-card.rotate .flip-card-inner {
+.flip-card:hover .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -281,8 +280,6 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .start-button.shown {
   transform: translate(30%, 0%);
   background-size: 0px 0px,cover;
-  -webkit-transition: .5s ease;
-    transition: .5s ease;
 }
 
 .start-button.repeat {
@@ -293,8 +290,7 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   background-repeat: no-repeat;
   background-size: 32px 32px,cover;
   background-position: 50%;
-  -webkit-transition: .5s ease;
-    transition: .5s ease;
+  transition: .3s;
 }
 
 .start-button.repeat.shown {
@@ -470,13 +466,7 @@ input[type='range']:focus {
 
 /* ================ BONUS ================ */
 
-@media screen and (max-width: 350px) {
-  header {
-    max-width:calc(100% - 48px);
-  }
-}
-
-@media screen and (min-width: 351px) {
+@media screen and (min-width: 350px) {
   header {
     max-width: 300px;
   }
