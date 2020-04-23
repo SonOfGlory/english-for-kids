@@ -511,8 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="start-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
   }
 
-  mainContentGenerator();
-
   function menuSelector(e) {
     const targetWithDataOrder = e.target.closest('[data-order]');
     if (e.target.dataset.order == 0) {
@@ -564,7 +562,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return array;
   }
 
-  gameModeSwitch.addEventListener('change', function() {
+  gameModeSwitch.onchange = () => {
     const findDataOrder = menu.querySelector(".active").dataset.order;
     if (findDataOrder == 0) mainContentGenerator();
     else pageContentGenerator(findDataOrder);
@@ -576,34 +574,37 @@ document.addEventListener('DOMContentLoaded', () => {
       startButton.classList.remove('shown');
       startButton.classList.add('purple-gradient');
       startButton.classList.remove('repeat');
+      nonGameMode ();
     }
-  });
-  
-  menu.onmouseleave = () => {
-    menu.dataset.menuswitch = 'hidden';
-    menuToggler.checked = false;
-  }
-
-  menu.onclick = (e) => {
-    menuSelector(e);
-  }
-
-  cardsContainer.onclick = (e) => {
-    winamp(e);
-    menuSelector(e);
-    rotateIcons(e);
   };
 
-  menuToggler.onclick = () => {
-    if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
-      menuTogglerTriggers.forEach(toggler => {
-        toggler.dataset.menuswitch = 'hidden';
-      }
-    )}
-    else menuTogglerTriggers.forEach(toggler => {
-        toggler.dataset.menuswitch = '';
-      }
-    )
+  function nonGameMode () {
+    menu.onmouseleave = () => {
+      menu.dataset.menuswitch = 'hidden';
+      menuToggler.checked = false;
+    }
+  
+    menu.onclick = (e) => {
+      menuSelector(e);
+    }
+
+    menuToggler.onclick = () => {
+      if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
+        menuTogglerTriggers.forEach(toggler => {
+          toggler.dataset.menuswitch = 'hidden';
+        }
+      )}
+      else menuTogglerTriggers.forEach(toggler => {
+          toggler.dataset.menuswitch = '';
+        }
+      )
+    }
+  
+    cardsContainer.onclick = (e) => {
+      winamp(e);
+      menuSelector(e);
+      rotateIcons(e);
+    };
   }
 
   function handleStart() {
@@ -623,7 +624,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Превращаем "старт" в "повтор" / Прячем "старт", показываем "повтор"
     startButton.classList.toggle('purple-gradient');
     startButton.classList.toggle('repeat');
-    // if (!gameMogeSwitch.checked) return;
+    /* if (!gameMogeSwitch.checked) return; */
   }
 
   startButton.onclick = () => {
@@ -641,17 +642,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // выключаем карточку
         playableTarget.classList.add('already-guessed');
         // добавляем звездочку
+
         // если слов больше нету ->
         if (shuffledCurrentTheme.length === 0) {
           // проигрываем звук прохождения теста
           cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="undefined">`;
-          playGameSound('Assets/audio/success.mp3');
+          playGameSound('Assets/audio/success.mp3'); /* success */
           // показываем картинку
           // возврат в экран выбора категорий и return
           startButton.classList.add('purple-gradient');
           startButton.classList.remove('repeat');
           setTimeout(function() {
             mainContentGenerator();
+            menuOutlineGenerator(0);
             cardsContainer.onclick = (e) => {
               winamp(e);
               menuSelector(e);
@@ -665,7 +668,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Проигрываем следуюций звук
         // (Взято из handleStart)
         currentObject = shuffledCurrentTheme.pop();
-        playGameSound(currentObject.audioSrc);
+        setTimeout(function() {
+          playGameSound(currentObject.audioSrc)
+        }, 900);
       }
       // если слово НЕ совпало:
       else {
@@ -677,8 +682,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } 
 
-
-
+  mainContentGenerator();
+  nonGameMode ();
 
   /*  ============================================== Volume bar ===================================================== */
 
