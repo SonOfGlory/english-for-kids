@@ -205,7 +205,7 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-.flip-card:hover .flip-card-inner {
+.flip-card.rotate .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -280,6 +280,8 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .start-button.shown {
   transform: translate(30%, 0%);
   background-size: 0px 0px,cover;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
 .start-button.repeat {
@@ -290,7 +292,8 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   background-repeat: no-repeat;
   background-size: 32px 32px,cover;
   background-position: 50%;
-  transition: .3s;
+  -webkit-transition: .5s ease;
+    transition: .5s ease;
 }
 
 .start-button.repeat.shown {
