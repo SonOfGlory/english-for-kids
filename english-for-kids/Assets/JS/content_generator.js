@@ -579,27 +579,6 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   function nonGameMode () {
-    menu.onmouseleave = () => {
-      menu.dataset.menuswitch = 'hidden';
-      menuToggler.checked = false;
-    }
-  
-    menu.onclick = (e) => {
-      menuSelector(e);
-    }
-
-    menuToggler.onclick = () => {
-      if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
-        menuTogglerTriggers.forEach(toggler => {
-          toggler.dataset.menuswitch = 'hidden';
-        }
-      )}
-      else menuTogglerTriggers.forEach(toggler => {
-          toggler.dataset.menuswitch = '';
-        }
-      )
-    }
-  
     cardsContainer.onclick = (e) => {
       winamp(e);
       menuSelector(e);
@@ -655,11 +634,8 @@ document.addEventListener('DOMContentLoaded', () => {
           setTimeout(function() {
             mainContentGenerator();
             menuOutlineGenerator(0);
-            cardsContainer.onclick = (e) => {
-              winamp(e);
-              menuSelector(e);
-            };
-          }, 2000);
+            nonGameMode();
+          }, 2500);
           return;
         }
         // проигрываем звук победы
@@ -683,6 +659,30 @@ document.addEventListener('DOMContentLoaded', () => {
   } 
 
   mainContentGenerator();
+
+  menu.onmouseleave = () => {
+    menu.dataset.menuswitch = 'hidden';
+    menuToggler.checked = false;
+  }
+
+  menu.onclick = (e) => {
+    startButton.classList.add('purple-gradient');
+    startButton.classList.remove('repeat');
+    menuSelector(e);
+    nonGameMode ()
+  }
+
+  menuToggler.onclick = () => {
+    if (document.querySelectorAll('[data-menuswitch="hidden"]').length === 0) {
+      menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = 'hidden';
+      }
+    )}
+    else menuTogglerTriggers.forEach(toggler => {
+        toggler.dataset.menuswitch = '';
+      }
+    )
+  }
   nonGameMode ();
 
   /*  ============================================== Volume bar ===================================================== */
