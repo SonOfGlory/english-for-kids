@@ -43,6 +43,7 @@ header {
 
 .btn {
   margin: 0;
+  padding: .375rem .75rem;
 }
 
 /* ========== Home menu burger ========== */
@@ -469,7 +470,13 @@ input[type='range']:focus {
 
 /* ================ BONUS ================ */
 
-@media screen and (min-width: 350px) {
+@media screen and (max-width: 350px) {
+  header {
+    max-width:calc(100% - 48px);
+  }
+}
+
+@media screen and (min-width: 351px) {
   header {
     max-width: 300px;
   }
