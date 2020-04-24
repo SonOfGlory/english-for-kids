@@ -542,7 +542,7 @@ input[type='range']:focus {
   }
   .start-button.shown {
     transform: translate(-50%, 0%);
-    top: 18%;
+    top: 19%;
   }
   .start-button {
     transform: translate(-50%, -300%);
