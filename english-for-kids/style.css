@@ -531,7 +531,7 @@ input[type='range']:focus {
     max-width: 300px;
   }
   .wrapper {
-    margin-top: 50px;
+    margin-top: 35px;
   }
   .start-button.shown {
     transform: translate(45%, 155%);
@@ -548,7 +548,6 @@ input[type='range']:focus {
   header {
     margin-left: 25px;
     margin-right: 25px;
-    width: inherit;
   }
 }
 

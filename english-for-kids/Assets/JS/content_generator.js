@@ -617,6 +617,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkCorrectAnswer(e) {
     const playableTarget = e.target.closest('.flip-card');
+    var isError = 0;
     if (playableTarget && !playableTarget.classList.contains('already-guessed')) {
     // выяснить какого слова касается карточка
     // если слово совпало:
@@ -627,18 +628,24 @@ document.addEventListener('DOMContentLoaded', () => {
         ratingContainer.insertAdjacentHTML('beforeEnd','<div class="correct"></div>');
         // если слов больше нету ->
         if (shuffledCurrentTheme.length === 0) {
-          // проигрываем звук прохождения теста
-          cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="undefined">`;
-          playGameSound('Assets/audio/success.mp3'); /* success */
-          // показываем картинку
+          if (document.querySelector('.wrong') === null) {
+            // показываем картинку
+            cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="success">`;
+            // проигрываем звук прохождения теста
+            playGameSound('Assets/audio/success.mp3'); /* success */
+          }
+          else {
+            cardsContainer.innerHTML = `<img src="Assets/img/failure.jpg" alt="failure">`;
+            playGameSound('Assets/audio/failure.mp3');
+          }
           // возврат в экран выбора категорий и return
           startButton.classList.add('purple-gradient');
           startButton.classList.remove('repeat');
           setTimeout(function() {
             mainContentGenerator();
             menuOutlineGenerator(0);
+            if (document.querySelector('.wrong') === null) sakuraPetals ();
             nonGameMode();
-            sakuraPetals ();
           }, 2500);
           return;
         }
@@ -658,6 +665,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ratingContainer.insertAdjacentHTML('beforeEnd','<div class="wrong"></div>');
         // проигрываем звук поражения
         playGameSound('Assets/audio/error.mp3');
+        isError++;
+        console.log(isError);
         // ожидание слова
       }
     }
