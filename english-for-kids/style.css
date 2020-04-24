@@ -513,13 +513,13 @@ input[type='range']:focus {
 
 
 @media only screen and (max-width: 1392px) {
-  header {
+  header, .rating {
     max-width: 992px;
   }
 }
 
 @media only screen and (max-width: 1043px) {
-  header {
+  header, .rating {
     max-width: 647px;
   }
 
@@ -534,7 +534,7 @@ input[type='range']:focus {
 }
 
 @media only screen and (max-width: 695px) {
-  header {
+  header, .rating {
     max-width: 300px;
   }
   .wrapper {
@@ -559,7 +559,7 @@ input[type='range']:focus {
 }
 
 @media screen and (max-width: 350px) {
-  header {
+  header, .rating {
     margin-left: 25px;
     margin-right: 25px;
   }
