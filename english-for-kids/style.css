@@ -269,10 +269,6 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   border-radius: inherit;
 }
 
-/* .play-mode {
-  background: url(Assets/img/sakura_petals.gif) 57% 74%;
-} */
-
 .start-button {
   position: absolute;
   left: 50%;
@@ -289,11 +285,6 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
     transition: .5s ease;
 }
 
-/* .start-button.shown:not(.repeat)
-{
-  padding: .375rem .75rem;
-} */
-
 .start-button.repeat {
   padding: 28px;
   font-size: 0;
@@ -309,6 +300,10 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 .start-button.repeat.shown {
   transform: translate(-50%, 0%);
     left: 50%;
+}
+
+.start-button.shown:not(.repeat) {
+  padding: 11px 17px;
 }
 
 .already-guessed img {
@@ -537,9 +532,6 @@ input[type='range']:focus {
   header, .rating {
     max-width: 300px;
   }
-  .wrapper {
-    /* margin-top: 35px; */
-  }
 
   .rating {
     align-items: flex-end;
@@ -547,15 +539,18 @@ input[type='range']:focus {
   }
   
   .start-button.shown {
-    transform: translate(-50%, 0%);
-    top: 19%;
+    transform: translate(-50%, 150%);
   }
   .start-button {
     transform: translate(-50%, -300%);
   }
-  .start-button.shown:not(.repeat) {
+/*   .start-button.shown:not(.repeat) {
     padding: 11px 17px;
-  }
+  } */
+  .start-button.repeat.shown {
+    transform: translate(-50%, 100%);
+    left: 50%;
+}
 }
 
 @media screen and (max-width: 350px) {

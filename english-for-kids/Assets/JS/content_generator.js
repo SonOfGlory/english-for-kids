@@ -475,8 +475,8 @@ document.addEventListener('DOMContentLoaded', () => {
       gameMode = '';
     }
     cardsContainer.innerHTML = dataStorage[pageNumber].map(item => 
-    `<div class="flip-card" data-word="${item.word}" data-audiosrc="${item.audioSrc}">
-      <div class="card m-4 flip-card-inner">
+    `<div class="flip-card m-4" data-word="${item.word}" data-audiosrc="${item.audioSrc}">
+      <div class="card flip-card-inner">
         <div class="flip-card-front">
           <!-- Card image -->
           <div class="view overlay d-flex justify-content-center">
@@ -572,6 +572,8 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       menu.classList.remove(gameGradient);
       startButton.classList.remove('shown');
+      // startButton.classList.add('purple-gradient');
+      // startButton.classList.remove('repeat');
       nonGameMode ();
     }
   };
@@ -638,6 +640,8 @@ document.addEventListener('DOMContentLoaded', () => {
             playGameSound('Assets/audio/failure.mp3');
           }
           // возврат в экран выбора категорий и return
+          // startButton.classList.add('purple-gradient');
+          // startButton.classList.remove('repeat');
           setTimeout(function() {
             mainContentGenerator();
             menuOutlineGenerator(0);
