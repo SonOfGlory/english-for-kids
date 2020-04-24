@@ -632,7 +632,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // показываем картинку
             cardsContainer.innerHTML = `<img src="Assets/img/crashbirthday.jpg" alt="success">`;
             // проигрываем звук прохождения теста
-            playGameSound('Assets/audio/success.mp3'); /* success */
+            playGameSound('Assets/audio/Hallelujah.mp3'); /* success */
           }
           else {
             cardsContainer.innerHTML = `<img src="Assets/img/failure.jpg" alt="failure">`;

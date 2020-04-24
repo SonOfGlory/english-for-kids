@@ -274,22 +274,28 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 } */
 
 .start-button {
-  transform: translate(30%, -300%);
+  position: absolute;
+  left: 50%;
+  padding: 11px 17px;
+  transform: translate(-50%, -300%);
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
 }
 
 .start-button.shown {
-  transform: translate(30%, 0%);
+  transform: translate(-50%, 0%);
   background-size: 0px 0px,cover;
   -webkit-transition: .5s ease;
     transition: .5s ease;
 }
+
 /* .start-button.shown:not(.repeat)
 {
   padding: .375rem .75rem;
 } */
 
 .start-button.repeat {
-/*   width: 65px; */
+  padding: 28px;
   font-size: 0;
   background-image: url(Assets/icons/repeat.svg),linear-gradient(40deg, #cee956, #5aca5a)!important;
   border-radius: 50%;
@@ -301,7 +307,8 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 }
 
 .start-button.repeat.shown {
-  transform: translate(74%, 0%);
+  transform: translate(-50%, 0%);
+    left: 50%;
 }
 
 .already-guessed img {
@@ -534,13 +541,14 @@ input[type='range']:focus {
     margin-top: 35px;
   }
   .start-button.shown {
-    transform: translate(45%, 155%);
+    transform: translate(-50%, 0%);
+    top: 18%;
   }
   .start-button {
-    transform: translate(45%, -300%);
+    transform: translate(-50%, -300%);
   }
   .start-button.shown:not(.repeat) {
-    padding: .375rem .75rem;
+    padding: 11px 17px;
   }
 }
 
@@ -556,24 +564,4 @@ input[type='range']:focus {
     right: 5%;
   }
 }
-
-/* @media only screen and (min-width: 1393px) {
-  header {
-    max-width: calc(1392px - 1.5rem*2);
-    height: 45px;
-    margin: 40px auto 0;
-  }
-} */
-
-/* @media screen and (min-width: 200px) {
-  header {
-    max-width:calc(100% - 48px);
-  }
-  .wrapper {
-    margin-top: 50px;
-  }
-  .start-button.shown {
-    transform: translate(30%, 155%);
-  }
-} */
 
