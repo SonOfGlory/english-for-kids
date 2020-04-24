@@ -36,7 +36,7 @@ ul {
 }
 
 header {
-  width: 100%;
+  max-width: calc(1392px - 1.5rem*2);
   height: 45px;
   margin: 40px auto 0;
 }
@@ -139,10 +139,6 @@ ul.menu li a {
 .active {
 /* border-bottom: dotted 3px; */
 background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px, transparent 5px);
-}
-
-.start-button {
-  transform: translate(30%, -300%);
 }
 
 /* ================ Cards ================ */
@@ -277,12 +273,20 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   background: url(Assets/img/sakura_petals.gif) 57% 74%;
 } */
 
+.start-button {
+  transform: translate(30%, -300%);
+}
+
 .start-button.shown {
   transform: translate(30%, 0%);
   background-size: 0px 0px,cover;
   -webkit-transition: .5s ease;
     transition: .5s ease;
 }
+/* .start-button.shown:not(.repeat)
+{
+  padding: .375rem .75rem;
+} */
 
 .start-button.repeat {
 /*   width: 65px; */
@@ -302,6 +306,36 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 
 .already-guessed img {
   opacity: .5;
+}
+
+.rating {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  max-width: 1350px;
+  margin: 0 auto;
+  /* height: 40px; */
+  overflow-x: hidden;
+  line-height: 36px;
+  font-size: 36px;
+  color: #6271fc;
+}
+
+.correct {
+  background-image: url(Assets/img/star-win.svg);
+}
+
+.wrong {
+  background-image: url(Assets/img/star.svg);
+}
+
+.correct, .wrong {
+  flex-shrink: 0;
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  border-radius: 50%;
 }
 
 /* ================ VOLUME ================ */
@@ -437,14 +471,14 @@ input[type='range']:focus {
   background-color: rgba(255, 255, 255, 0.32); */
 }
 
-/* ================ BONUS ================ */
+/* ================ Petals ================ */
 
 #blossom_container {
   width:100%;
   height:100%;
 }
 .petal {
-  background: url(http://talktofill.surge.sh/cherry-blossom.png) no-repeat;
+  background: url(Assets/img/violet-blossom.png) no-repeat;
 }
 .petal.petal-style1 {
   width: 45px;
@@ -467,28 +501,80 @@ input[type='range']:focus {
   background-position: -49px -35px;
 }
 
-/* ================ BONUS ================ */
+/* ================ END OF BONUS ================ */
 
-@media screen and (min-width: 350px) {
-  header {
-    max-width: 300px;
-  }
-}
 
-@media screen and (min-width: 696px) {
-  header {
-    max-width: 647px;
-  }
-}
 
-@media screen and (min-width: 1044px) {
+@media only screen and (max-width: 1392px) {
   header {
     max-width: 992px;
   }
 }
 
-@media screen and (min-width: 1392px) {
+@media only screen and (max-width: 1043px) {
   header {
-  max-width: calc(1392px - 1.5rem*2);
+    max-width: 647px;
+  }
+
+  /* .start-button.shown {
+    transform: translate(47%, 155%);
+  }
+
+  .start-button {
+    transform: translate(47%, -300%);
+  } */
+
+}
+
+@media only screen and (max-width: 695px) {
+  header {
+    max-width: 300px;
+  }
+  .wrapper {
+    margin-top: 50px;
+  }
+  .start-button.shown {
+    transform: translate(45%, 155%);
+  }
+  .start-button {
+    transform: translate(45%, -300%);
+  }
+  .start-button.shown:not(.repeat) {
+    padding: .375rem .75rem;
   }
 }
+
+@media screen and (max-width: 350px) {
+  header {
+    margin-left: 25px;
+    margin-right: 25px;
+    width: inherit;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .switch-container {
+    right: 5%;
+  }
+}
+
+/* @media only screen and (min-width: 1393px) {
+  header {
+    max-width: calc(1392px - 1.5rem*2);
+    height: 45px;
+    margin: 40px auto 0;
+  }
+} */
+
+/* @media screen and (min-width: 200px) {
+  header {
+    max-width:calc(100% - 48px);
+  }
+  .wrapper {
+    margin-top: 50px;
+  }
+  .start-button.shown {
+    transform: translate(30%, 155%);
+  }
+} */
+

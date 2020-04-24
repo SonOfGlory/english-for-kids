@@ -29,7 +29,9 @@
       <div></div>
       <div></div>
     </div>
-    <button type="button" class="start-button btn rounded-pill purple-gradient play-mode-color">Start game</button>
+    <!-- <div class="button-wrapper d-flex justify-content-center"> -->
+      <button type="button" class="start-button btn rounded-pill purple-gradient play-mode-color">Start game</button>
+    <!-- </div> -->
     <div class="switch-container demo-rebrand-2">
       <input id="toggler" type="checkbox">
       <label for="toggler">
@@ -51,49 +53,48 @@
   </ul>
 
   <!-- <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 px-lg-5" id="loadContainer"></div> -->
-
-<div class="wrapper d-flex flex-wrap justify-content-center" > <!-- id="blossom_container" -->
-  <!-- Place for card -->
-
-  <div class="flip-card">
-    <div class="card m-4 flip-card-inner">
-      <div class="flip-card-front">
-        <!-- Card image -->
-        <div class="view overlay"> 
-          <img class="card-img-top" src="Assets/img/sakura_petals.gif" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight waves-effect waves-light"></div>
-          </a>
+  <div class="wrapper rating"></div>
+  <div class="wrapper d-flex flex-wrap justify-content-center" id="blossom_container"> <!-- id="blossom_container" -->
+    <!-- Place for card -->
+    <div class="flip-card">
+      <div class="card m-4 flip-card-inner">
+        <div class="flip-card-front">
+          <!-- Card image -->
+          <div class="view overlay"> 
+            <img class="card-img-top" src="Assets/img/sakura_petals.gif" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+            </a>
+          </div>
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h4 class="card-title text-center">Card title</h4>
+            <!-- rotation icon -->
+            <div class="rotate-icon"></div>
+          </div>
         </div>
-        <!-- Card content -->
-        <div class="card-body">
-          <!-- Title -->
-          <h4 class="card-title text-center">Card title</h4>
-          <!-- rotation icon -->
-          <div class="rotate-icon"></div>
-        </div>
-      </div>
-      <div class="flip-card-back">
-        <!-- Card image -->
-        <div class="view overlay">
-          <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
-          <a href="#!">
-            <div class="mask rgba-white-slight waves-effect waves-light"></div>
-          </a>
-        </div>
-        <!-- Card content -->
-        <div class="card-body">
-          <!-- Title -->
-          <h4 class="card-title text-center">Card another title</h4>
+        <div class="flip-card-back">
+          <!-- Card image -->
+          <div class="view overlay">
+            <img class="card-img-top" src="https://mdbootstrap.com/img/Mockups/Lightbox/Thumbnail/img%20(67).jpg" alt="Card image cap">
+            <a href="#!">
+              <div class="mask rgba-white-slight waves-effect waves-light"></div>
+            </a>
+          </div>
+          <!-- Card content -->
+          <div class="card-body">
+            <!-- Title -->
+            <h4 class="card-title text-center">Card another title</h4>
+          </div>
         </div>
       </div>
     </div>
+    
+    
   </div>
-  
-  
-</div>
 
-<input type="range" min="1" max="100" value="20" class="slider" id="volume">
+  <input type="range" min="1" max="100" value="20" class="slider" id="volume">
 
 <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
