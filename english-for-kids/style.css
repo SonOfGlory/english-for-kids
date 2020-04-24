@@ -316,12 +316,13 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 }
 
 .rating {
+  align-items: flex-end;
   display: flex;
   justify-content: flex-end;
   width: 100%;
   max-width: 1350px;
   margin: 0 auto;
-  /* height: 40px; */
+  height: 100px;
   overflow-x: hidden;
   line-height: 36px;
   font-size: 36px;
@@ -538,11 +539,11 @@ input[type='range']:focus {
     max-width: 300px;
   }
   .wrapper {
-    margin-top: 35px;
+    /* margin-top: 35px; */
   }
   .start-button.shown {
     transform: translate(-50%, 0%);
-    top: 19%;
+    top: 13%;
   }
   .start-button {
     transform: translate(-50%, -300%);
@@ -559,9 +560,9 @@ input[type='range']:focus {
   }
 }
 
-@media screen and (max-width: 320px) {
+/* @media screen and (max-width: 320px) {
   .switch-container {
     right: 5%;
   }
-}
+} */
 

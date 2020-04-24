@@ -436,9 +436,9 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
   ]
 
-  const cardsContainer = document.querySelector("body > div.wrapper.d-flex.flex-wrap.justify-content-center");
-  const menu = document.querySelector('body > ul');
-  const menuToggler = document.querySelector("body > header > div.menu-toggler > input[type=checkbox]");
+  const cardsContainer = document.querySelector("body > div > div.wrapper.d-flex.flex-wrap.justify-content-center");
+  const menu = document.querySelector('body > div > ul');
+  const menuToggler = document.querySelector("body > div > header > div.menu-toggler > input[type=checkbox]");
   const menuTogglerTriggers = document.querySelectorAll('[data-menuswitch]');
   const gameModeSwitch = document.querySelector("#toggler");
   const gameGradient = 'game-mode';
