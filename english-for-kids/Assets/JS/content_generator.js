@@ -509,7 +509,6 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
     </div>`).join('');
-    // wrapper.insertAdjacentHTML('beforeend', '<button type="button" class="start-button btn rounded-pill purple-gradient play-mode-color">Start game</button>');
   }
 
   function menuSelector(e) {
@@ -573,8 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       menu.classList.remove(gameGradient);
       startButton.classList.remove('shown');
-      startButton.classList.add('purple-gradient');
-      startButton.classList.remove('repeat');
       nonGameMode ();
     }
   };
@@ -587,6 +584,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (document.querySelector(".petals") != null) document.querySelector(".petals").remove();
     };
     ratingContainer.innerHTML = '';
+    startButton.classList.add('purple-gradient');
+    startButton.classList.remove('repeat');
   }
 
   function handleStart() {
@@ -639,8 +638,6 @@ document.addEventListener('DOMContentLoaded', () => {
             playGameSound('Assets/audio/failure.mp3');
           }
           // возврат в экран выбора категорий и return
-          startButton.classList.add('purple-gradient');
-          startButton.classList.remove('repeat');
           setTimeout(function() {
             mainContentGenerator();
             menuOutlineGenerator(0);
