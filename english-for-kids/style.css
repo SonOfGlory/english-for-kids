@@ -137,7 +137,6 @@ ul.menu li a {
 }
 
 .active {
-/* border-bottom: dotted 3px; */
 background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px, transparent 5px);
 }
 
@@ -249,8 +248,6 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
 /* ================ Game-related  ================ */
 
 .game-mode {
-  /* background: -webkit-radial-gradient( left bottom, circle farthest-corner, #ffd6ee, #7873f5);
-  background: radial-gradient( farthest-corner circle at left bottom, #ffd6ee, #7873f5); */
   background: linear-gradient(40deg, #ffd6ee, #7873f5)!important;  
 }
 
@@ -273,28 +270,34 @@ background: repeating-linear-gradient(-60deg, #fff 0, #fff 1px, transparent 1px,
   position: absolute;
   left: 50%;
   padding: 11px 17px;
+  color: #fff;
+  background-image: url(Assets/icons/repeat.svg),linear-gradient(40deg, #ff6ec4, #7873f5);
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-size: 0px 0px,cover;
+  background-position: 50%;
   transform: translate(-50%, -300%);
   -webkit-transition: .5s ease;
-  transition: .5s ease;
+  transition: all .5s ease;
+}
+
+.start-button:hover {
+  color: #fff;
 }
 
 .start-button.shown {
   transform: translate(-50%, 0%);
-  background-size: 0px 0px,cover;
   -webkit-transition: .5s ease;
-    transition: .5s ease;
+    transition: all .5s ease;
 }
 
 .start-button.repeat {
   padding: 28px;
   font-size: 0;
-  background-image: url(Assets/icons/repeat.svg),linear-gradient(40deg, #cee956, #5aca5a)!important;
-  /* border-radius: 50%; */
-  background-repeat: no-repeat;
+  background-image: url(Assets/icons/repeat.svg),linear-gradient(40deg, #cee956, #5aca5a);
   background-size: 32px 32px,cover;
-  background-position: 50%;
   -webkit-transition: .5s ease;
-    transition: .5s ease;
+  transition: all .5s ease;
 }
 
 .start-button.repeat.shown {
@@ -516,15 +519,6 @@ input[type='range']:focus {
   header, .rating {
     max-width: 647px;
   }
-
-  /* .start-button.shown {
-    transform: translate(47%, 155%);
-  }
-
-  .start-button {
-    transform: translate(47%, -300%);
-  } */
-
 }
 
 @media only screen and (max-width: 695px) {
@@ -543,9 +537,6 @@ input[type='range']:focus {
   .start-button {
     transform: translate(-50%, -300%);
   }
-/*   .start-button.shown:not(.repeat) {
-    padding: 11px 17px;
-  } */
   .start-button.repeat.shown {
     transform: translate(-50%, 100%);
   }
@@ -557,10 +548,4 @@ input[type='range']:focus {
     margin-right: 25px;
   }
 }
-
-/* @media screen and (max-width: 320px) {
-  .switch-container {
-    right: 5%;
-  }
-} */
 
